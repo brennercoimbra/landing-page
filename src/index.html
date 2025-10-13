@@ -353,6 +353,57 @@
         opacity: 0.95;
       }
 
+      .planos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        justify-content: center;
+        margin-top: 40px;
+      }
+
+      /* Ensure plan cards have consistent height and aligned buttons */
+      .planos-grid .beneficio-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .preco-plano {
+        font-size: 24px;
+        font-weight: 800;
+        color: #1a202c;
+        margin: 20px 0 0;
+      }
+
+      .preco-nota {
+        font-size: 14px;
+        color: #4a5568;
+        margin-top: 4px;
+      }
+
+      /* Visual accents per plan */
+      .plano-essencial {
+        border-color: #38a169;
+      }
+
+      .plano-essencial:hover {
+        border-color: #38a169;
+        box-shadow: 0 20px 40px rgba(56, 161, 105, 0.25);
+      }
+
+      .plano-premium {
+        border-color: #805ad5;
+      }
+
+      .plano-premium:hover {
+        border-color: #805ad5;
+        box-shadow: 0 20px 40px rgba(128, 90, 213, 0.25);
+      }
+
+      .planos-grid .btn-cta {
+        margin-top: auto;
+      }
+
       .btn-cta {
         background: white;
         color: #38a169;
@@ -617,30 +668,30 @@
         <div class="container">
           <h2 class="section-title">Como Funciona</h2>
           <div class="passos-grid">
-            <div class="passo">
+            <!-- <div class="passo">
               <div class="passo-numero">1</div>
               <h3>Cadastro</h3>
               <p>Crie sua conta e faça login na plataforma</p>
-            </div>
+            </div> -->
             <div class="passo">
-              <div class="passo-numero">2</div>
+              <div class="passo-numero">1</div>
               <h3>Escolha do Plano</h3>
               <p>Escolha o plano que melhor corresponde a sua necessidade</p>
             </div>
             <div class="passo">
-              <div class="passo-numero">3</div>
+              <div class="passo-numero">2</div>
               <h3>Anamnese</h3>
               <p>
                 Preencha uma avaliação completa sobre seu histórico e objetivos
               </p>
             </div>
             <div class="passo">
-              <div class="passo-numero">4</div>
+              <div class="passo-numero">3</div>
               <h3>Treino Personalizado</h3>
               <p>Receba seu plano de treino personalizado por mim</p>
             </div>
             <div class="passo">
-              <div class="passo-numero">5</div>
+              <div class="passo-numero">4</div>
               <h3>Acompanhamento</h3>
               <p>
                 Registre seu progresso e receba ajustes no treino conforme
@@ -656,12 +707,43 @@
         <div class="container">
           <h2 class="cta-titulo">Pronto para Transformar sua Vida?</h2>
           <p class="cta-texto">Junte-se a nós para alcançar seus objetivos!</p>
-          <button
-            class="btn-cta"
-            onclick="alert('Funcionalidade de login não implementada neste projeto standalone.')"
-          >
-            Começar Minha Jornada Agora
-          </button>
+          <div class="planos-grid">
+            <div class="beneficio-card plano-essencial">
+              <div class="beneficio-icone">⭐</div>
+              <h3 class="beneficio-titulo">Plano 1</h3>
+              <p class="beneficio-descricao">
+                Para começar com segurança e constância. Conversa pelo Google
+                Meet, ficha de treino personalizada e orientações claras para
+                sua rotina. Acompanhamento mensal para ajustes quando
+                necessário.
+              </p>
+              <p class="preco-plano">R$ 130,00 / mês</p>
+              <button
+                class="btn-cta"
+                onclick="alert('Plano Essencial selecionado!')"
+              >
+                Escolher Plano
+              </button>
+            </div>
+            <div class="beneficio-card plano-premium">
+              <div class="beneficio-icone">⭐⭐</div>
+              <h3 class="beneficio-titulo">Plano 2</h3>
+              <p class="beneficio-descricao">
+                Suporte completo para acelerar resultados. Chamada inicial para
+                montar o treino, segunda chamada de explicação detalhada, semana
+                de treino‑teste com feedbacks e acesso por 2 meses à plataforma
+                MiFitPersonal com ajustes sempre que necessário. Ideal para
+                acompanhamento próximo e evolução contínua.
+              </p>
+              <p class="preco-plano">R$ 310,00 / Mês</p>
+              <button
+                class="btn-cta"
+                onclick="alert('Plano Premium selecionado!')"
+              >
+                Escolher Plano
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 

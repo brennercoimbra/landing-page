@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en" data-critters-container>
+  <head>
+    <meta charset="utf-8">
+    <title>Consultoria Amanda Santtos</title>
+    <base href="C:/Users/brenner.coimbra/AppData/Local/Programs/Git/landing-page/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+      .landing-container {
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #38a169 0%, #68d391 100%);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 60px;
+        position: relative;
+        padding: 80px 40px;
+        color: white;
+      }
+
+      .hero-content {
+        max-width: 600px;
+        z-index: 2;
+        text-align: left;
+      }
+
+      .hero-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+      }
+
+      .profile-image {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        object-fit: cover;
+        animation: fadeInRight 1s ease;
+      }
+
+      .hero-title {
+        font-size: 56px;
+        font-weight: 800;
+        margin-bottom: 20px;
+        line-height: 1.2;
+        animation: fadeInUp 1s ease;
+      }
+
+      .hero-subtitle {
+        font-size: 24px;
+        margin-bottom: 40px;
+        opacity: 0.95;
+        animation: fadeInUp 1s ease 0.2s backwards;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: fadeInUp 1s ease 0.4s backwards;
+      }
+
+      .btn-primary,
+      .btn-secondary,
+      .btn-cta {
+        padding: 16px 40px;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .btn-primary {
+        background: white;
+        color: #38a169;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .btn-secondary:hover {
+        background: white;
+        color: #38a169;
+        transform: translateY(-3px);
+      }
+
+      .hero-decoration {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .floating-icon {
+        position: absolute;
+        font-size: 80px;
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-icon:nth-child(1) {
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+
+      .floating-icon:nth-child(2) {
+        top: 60%;
+        right: 15%;
+        animation-delay: 2s;
+      }
+
+      .floating-icon:nth-child(3) {
+        bottom: 20%;
+        left: 20%;
+        animation-delay: 4s;
+      }
+
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Section Title */
+      .section-title {
+        font-size: 42px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 60px;
+        color: #1a202c;
+        position: relative;
+        padding-bottom: 20px;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(135deg, #38a169 0%, #68d391 100%);
+        border-radius: 2px;
+      }
+
+      /* Sobre Section */
+      .sobre {
+        padding: 100px 20px;
+        background: #f0fff4;
+      }
+
+      .sobre-texto {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #2d3748;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        white-space: pre-line;
+      }
+
+      /* Benefícios Section */
+      .beneficios {
+        padding: 100px 20px;
+        background: white;
+      }
+
+      .beneficios-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        justify-content: center;
+      }
+
+      .beneficio-card {
+        background: #f0fff4;
+        padding: 40px 30px;
+        border-radius: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .beneficio-card:hover {
+        transform: translateY(-10px);
+        border-color: #38a169;
+        box-shadow: 0 20px 40px rgba(56, 161, 105, 0.2);
+      }
+
+      .beneficio-icone {
+        font-size: 64px;
+        margin-bottom: 20px;
+      }
+
+      .beneficio-titulo {
+        font-size: 22px;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 15px;
+      }
+
+      .beneficio-descricao {
+        font-size: 16px;
+        color: #2d3748;
+        line-height: 1.6;
+      }
+
+      /* Como Funciona Section */
+      .como-funciona {
+        padding: 100px 20px;
+        background: linear-gradient(135deg, #38a169 0%, #68d391 100%);
+        color: white;
+      }
+
+      .como-funciona .section-title {
+        color: white;
+      }
+
+      .como-funciona .section-title::after {
+        background: white;
+      }
+
+      .passos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+      }
+
+      .passo {
+        text-align: center;
+        padding: 30px;
+      }
+
+      .passo-numero {
+        width: 80px;
+        height: 80px;
+        background: white;
+        color: #38a169;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 36px;
+        font-weight: 800;
+        margin: 0 auto 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .passo h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+
+      .passo p {
+        font-size: 16px;
+        opacity: 0.95;
+        line-height: 1.6;
+      }
+
+      /* Depoimentos Section */
+      .depoimentos {
+        padding: 100px 20px;
+        background: #f0fff4;
+      }
+
+      .depoimentos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+      }
+
+      .depoimento-card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .depoimento-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .depoimento-estrelas {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+
+      .depoimento-texto {
+        font-size: 16px;
+        color: #2d3748;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        font-style: italic;
+      }
+
+      .depoimento-autor {
+        font-size: 14px;
+        color: #4a5568;
+        font-weight: 600;
+        text-align: right;
+      }
+
+      /* CTA Final Section */
+      .cta-final {
+        padding: 100px 20px;
+        background: linear-gradient(135deg, #38a169 0%, #68d391 100%);
+        color: white;
+        text-align: center;
+      }
+
+      .cta-titulo {
+        font-size: 42px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .cta-texto {
+        font-size: 20px;
+        margin-bottom: 40px;
+        opacity: 0.95;
+      }
+
+      .planos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        justify-content: center;
+        margin-top: 40px;
+      }
+
+      /* Ensure plan cards have consistent height and aligned buttons */
+      .planos-grid .beneficio-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .preco-plano {
+        font-size: 24px;
+        font-weight: 800;
+        color: #1a202c;
+        margin: 20px 0 0;
+      }
+
+      .preco-nota {
+        font-size: 14px;
+        color: #4a5568;
+        margin-top: 4px;
+      }
+
+      /* Visual accents per plan */
+      .plano-essencial {
+        border-color: #38a169;
+      }
+
+      .plano-essencial:hover {
+        border-color: #38a169;
+        box-shadow: 0 20px 40px rgba(56, 161, 105, 0.25);
+      }
+
+      .plano-premium {
+        border-color: #805ad5;
+      }
+
+      .plano-premium:hover {
+        border-color: #805ad5;
+        box-shadow: 0 20px 40px rgba(128, 90, 213, 0.25);
+      }
+
+      .planos-grid .btn-cta {
+        margin-top: auto;
+      }
+
+      .btn-cta {
+        background: white;
+        color: #38a169;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-cta:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Footer */
+      .footer {
+        padding: 40px 20px;
+        background: #1a202c;
+        color: white;
+        text-align: center;
+      }
+
+      .footer p {
+        margin-bottom: 20px;
+        opacity: 0.8;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+        text-decoration: underline;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 40px;
+          padding: 60px 20px;
+          text-align: center;
+        }
+
+        .hero-content {
+          text-align: center;
+        }
+
+        .hero-image {
+          order: -1;
+        }
+
+        .profile-image {
+          max-width: 280px;
+        }
+
+        .hero-title {
+          font-size: 36px;
+        }
+
+        .hero-subtitle {
+          font-size: 18px;
+        }
+
+        .section-title {
+          font-size: 32px;
+        }
+
+        .beneficios-grid,
+        .passos-grid,
+        .depoimentos-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+        }
+
+        .btn-primary,
+        .btn-secondary,
+        .btn-cta {
+          width: 100%;
+          max-width: 300px;
+        }
+
+        .cta-titulo {
+          font-size: 28px;
+        }
+
+        .cta-texto {
+          font-size: 16px;
+        }
+      }
+    </style>
+  <style>*{margin:0;padding:0;box-sizing:border-box}html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;font-size:16px;line-height:1.6;color:#1a202c;background:#f0fff4;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}body{margin:0;min-height:100vh;min-height:-webkit-fill-available}h1,h2,h3{font-weight:600;line-height:1.2;color:#1a202c}h1{font-size:clamp(1.5rem,5vw,2rem)}h2{font-size:clamp(1.25rem,4vw,1.5rem)}h3{font-size:clamp(1.1rem,3vw,1.25rem)}p{margin-bottom:1rem}button{font-family:inherit;font-size:inherit}.container{max-width:1200px;margin:0 auto;padding:0 20px}@media (max-width: 768px){html{font-size:14px}.container{padding:0 15px}button{min-height:44px;min-width:44px}}body{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}</style><link rel="stylesheet" href="styles.2a26914ae8966977.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.2a26914ae8966977.css"></noscript></head>
+  <body>
+    <div class="landing-container">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <h1 class="hero-title">Consultoria Online<br>Amanda Santtos</h1>
+          <p class="hero-subtitle">
+            Transforme seu corpo e sua saúde com acompanhamento profissional
+            personalizado
+          </p>
+          <div class="hero-buttons">
+            <button class="btn-primary" onclick="alert('Funcionalidade de login não implementada neste projeto standalone.')">
+              Começar Agora
+            </button>
+            <button class="btn-secondary" onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">
+              Saiba Mais
+            </button>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="assets/foto.png" alt="Educadora Física" class="profile-image">
+        </div>
+        <div class="hero-decoration">
+          <div class="floating-icon">💪</div>
+          <div class="floating-icon">🏃</div>
+          <div class="floating-icon">🎯</div>
+        </div>
+      </section>
+
+      <!-- Sobre Section -->
+      <section id="sobre" class="sobre">
+        <div class="container">
+          <h2 class="section-title">Sobre Mim</h2>
+          <p class="sobre-texto">
+            Olá, seja muito bem-vindo(a) à
+            <strong>minha consultoria online</strong>! Sou
+            <strong>Amanda Santos</strong>, personal trainer, e ajudo pessoas a
+            alcançarem seus objetivos com
+            <strong>treinos seguros, eficientes e totalmente personalizados</strong>. Durante muito tempo atuei apenas de forma presencial, porque
+            sempre acreditei que uma boa <strong>anamnese</strong> exige escuta,
+            análise e atenção genuína a cada detalhe. Demorei a migrar para o
+            online justamente por observar o quanto esse espaço, muitas vezes,
+            se distancia do que considero essencial:
+            <strong>cuidado, verdade e individualidade</strong>. Por isso,
+            construí uma consultoria baseada nos <strong>meus valores</strong>,
+            pensada para oferecer uma
+            <strong>experiência completa, humanizada e de crescimento mútuo</strong>, mesmo à distância. Aqui, cada treino é elaborado com propósito —
+            e cada passo é acompanhado de perto, com
+            <strong>conhecimento, feedbacks constantes e suporte real</strong>,
+            para que você se sinta
+            <strong>seguro(a), motivado(a) e confiante</strong> em toda a
+            jornada. Acredito que o corpo e a mente caminham juntos. Por isso,
+            realizo <strong>chamadas pelo Google Meet</strong>, para te conhecer
+            melhor, entender como está o seu momento emocional e ajustar seu
+            plano de acordo com suas necessidades reais. Esse é o tipo de
+            consultoria em que acredito:
+            <strong>humana, responsável e verdadeiramente transformadora.</strong>
+          </p>
+        </div>
+      </section>
+
+      <!-- Benefícios Section -->
+      <section id="beneficios" class="beneficios">
+        <div class="container">
+          <h2 class="section-title">Por Que Escolher Nossa Consultoria?</h2>
+          <div class="beneficios-grid">
+            <div class="beneficio-card">
+              <div class="beneficio-icone">🎯</div>
+              <h3 class="beneficio-titulo">Treinos Personalizados</h3>
+              <p class="beneficio-descricao">
+                Planos de treino adaptados aos seus objetivos e necessidades
+                específicas
+              </p>
+            </div>
+            <div class="beneficio-card">
+              <div class="beneficio-icone">📊</div>
+              <h3 class="beneficio-titulo">Acompanhamento Profissional</h3>
+              <p class="beneficio-descricao">
+                Monitoramento constante do seu progresso.
+              </p>
+            </div>
+            <div class="beneficio-card">
+              <div class="beneficio-icone">📋</div>
+              <h3 class="beneficio-titulo">Avaliação Completa</h3>
+              <p class="beneficio-descricao">
+                Anamnese detalhada para entender seu histórico e condições de
+                saúde
+              </p>
+            </div>
+            <div class="beneficio-card">
+              <div class="beneficio-icone">🏠</div>
+              <h3 class="beneficio-titulo">Flexibilidade Total</h3>
+              <p class="beneficio-descricao">
+                Treine onde e quando quiser, com total flexibilidade de horários
+              </p>
+            </div>
+            <div class="beneficio-card">
+              <div class="beneficio-icone">💬</div>
+              <h3 class="beneficio-titulo">Suporte Contínuo</h3>
+              <p class="beneficio-descricao">
+                Tire suas dúvidas e receba orientações sempre que precisar
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Como Funciona Section -->
+      <section id="como-funciona" class="como-funciona">
+        <div class="container">
+          <h2 class="section-title">Como Funciona</h2>
+          <div class="passos-grid">
+            <!-- <div class="passo">
+              <div class="passo-numero">1</div>
+              <h3>Cadastro</h3>
+              <p>Crie sua conta e faça login na plataforma</p>
+            </div> -->
+            <div class="passo">
+              <div class="passo-numero">1</div>
+              <h3>Escolha do Plano</h3>
+              <p>Escolha o plano que melhor corresponde a sua necessidade</p>
+            </div>
+            <div class="passo">
+              <div class="passo-numero">2</div>
+              <h3>Anamnese</h3>
+              <p>
+                Preencha uma avaliação completa sobre seu histórico e objetivos
+              </p>
+            </div>
+            <div class="passo">
+              <div class="passo-numero">3</div>
+              <h3>Treino Personalizado</h3>
+              <p>Receba seu plano de treino personalizado por mim</p>
+            </div>
+            <div class="passo">
+              <div class="passo-numero">4</div>
+              <h3>Acompanhamento</h3>
+              <p>
+                Registre seu progresso e receba ajustes no treino conforme
+                necessário
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Final Section -->
+      <section class="cta-final">
+        <div class="container">
+          <h2 class="cta-titulo">Pronto para Transformar sua Vida?</h2>
+          <p class="cta-texto">Junte-se a nós para alcançar seus objetivos!</p>
+          <div class="planos-grid">
+            <div class="beneficio-card plano-essencial">
+              <div class="beneficio-icone">⭐</div>
+              <h3 class="beneficio-titulo">Plano 1</h3>
+              <p class="beneficio-descricao">
+                Para começar com segurança e constância. Conversa pelo Google
+                Meet, ficha de treino personalizada e orientações claras para
+                sua rotina. Acompanhamento mensal para ajustes quando
+                necessário.
+              </p>
+              <p class="preco-plano">R$ 130,00 / mês</p>
+              <button class="btn-cta" onclick="alert('Plano Essencial selecionado!')">
+                Escolher Plano
+              </button>
+            </div>
+            <div class="beneficio-card plano-premium">
+              <div class="beneficio-icone">⭐⭐</div>
+              <h3 class="beneficio-titulo">Plano 2</h3>
+              <p class="beneficio-descricao">
+                Suporte completo para acelerar resultados. Chamada inicial para
+                montar o treino, segunda chamada de explicação detalhada, semana
+                de treino‑teste com feedbacks e acesso por 2 meses à plataforma
+                MiFitPersonal com ajustes sempre que necessário. Ideal para
+                acompanhamento próximo e evolução contínua.
+              </p>
+              <p class="preco-plano">R$ 310,00 / Mês</p>
+              <button class="btn-cta" onclick="alert('Plano Premium selecionado!')">
+                Escolher Plano
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <p>
+            &copy; 2025 Consultoria Online de Educação Física. Todos os direitos
+            reservados.
+          </p>
+        </div>
+      </footer>
+    </div>
+  <script src="runtime.96852d635781f078.js" type="module"></script><script src="polyfills.658f076a9eca5aea.js" type="module"></script><script src="main.308a7a6c66c02430.js" type="module"></script></body>
+</html>

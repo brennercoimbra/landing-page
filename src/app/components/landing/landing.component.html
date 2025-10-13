@@ -1,0 +1,132 @@
+<div class="landing-container">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title" [innerHTML]="tituloSite"></h1>
+      <p class="hero-subtitle">{{ subtitulo }}</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" (click)="irParaLogin()">
+          Começar Agora
+        </button>
+        <button class="btn-secondary" (click)="scrollParaSecao('sobre')">
+          Saiba Mais
+        </button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img
+        src="assets/princesa.png"
+        alt="Educadora Física"
+        class="profile-image"
+      />
+    </div>
+    <div class="hero-decoration">
+      <div class="floating-icon">💪</div>
+      <div class="floating-icon">🏃</div>
+      <div class="floating-icon">🎯</div>
+    </div>
+  </section>
+
+  <!-- Sobre Section -->
+  <section id="sobre" class="sobre">
+    <div class="container">
+      <h2 class="section-title">Sobre Mim</h2>
+      <p class="sobre-texto" [innerHTML]="sobreTexto"></p>
+    </div>
+  </section>
+
+  <!-- Benefícios Section -->
+  <section id="beneficios" class="beneficios">
+    <div class="container">
+      <h2 class="section-title">Por Que Escolher Nossa Consultoria?</h2>
+      <div class="beneficios-grid">
+        <div class="beneficio-card" *ngFor="let beneficio of beneficios">
+          <div class="beneficio-icone">{{ beneficio.icone }}</div>
+          <h3 class="beneficio-titulo">{{ beneficio.titulo }}</h3>
+          <p class="beneficio-descricao">{{ beneficio.descricao }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Como Funciona Section -->
+  <section id="como-funciona" class="como-funciona">
+    <div class="container">
+      <h2 class="section-title">Como Funciona</h2>
+      <div class="passos-grid">
+        <div class="passo">
+          <div class="passo-numero">1</div>
+          <h3>Cadastro</h3>
+          <p>Crie sua conta e faça login na plataforma</p>
+        </div>
+        <div class="passo">
+          <div class="passo-numero">2</div>
+          <h3>Escolha do Plano</h3>
+          <p>Escolha o plano que melhor corresponde a sua necessidade</p>
+        </div>
+        <div class="passo">
+          <div class="passo-numero">3</div>
+          <h3>Anamnese</h3>
+          <p>Preencha uma avaliação completa sobre seu histórico e objetivos</p>
+        </div>
+        <div class="passo">
+          <div class="passo-numero">4</div>
+          <h3>Treino Personalizado</h3>
+          <p>Receba seu plano de treino personalizado por mim</p>
+        </div>
+        <div class="passo">
+          <div class="passo-numero">5</div>
+          <h3>Acompanhamento</h3>
+          <p>
+            Registre seu progresso e receba ajustes no treino conforme
+            necessário
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos Section
+  <section id="depoimentos" class="depoimentos">
+    <div class="container">
+      <h2 class="section-title">O Que Nossos Alunos Dizem</h2>
+      <div class="depoimentos-grid">
+        <div class="depoimento-card" *ngFor="let depoimento of depoimentos">
+          <div class="depoimento-estrelas">
+            <span *ngFor="let star of [1, 2, 3, 4, 5]">⭐</span>
+          </div>
+          <p class="depoimento-texto">"{{ depoimento.texto }}"</p>
+          <p class="depoimento-autor">- {{ depoimento.nome }}</p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- CTA Final Section -->
+  <section class="cta-final">
+    <div class="container">
+      <h2 class="cta-titulo">Pronto para Transformar sua Vida?</h2>
+      <p class="cta-texto">Junte-se a nós para alcançar seus objetivos!</p>
+      <button class="btn-cta" (click)="irParaLogin()">
+        Começar Minha Jornada Agora
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>
+        &copy; 2025 Consultoria Online de Educação Física. Todos os direitos
+        reservados.
+      </p>
+      <!-- <div class="footer-links">
+        <a href="#" (click)="$event.preventDefault()"
+          >Política de Privacidade</a
+        >
+        <a href="#" (click)="$event.preventDefault()">Termos de Uso</a>
+        <a href="#" (click)="$event.preventDefault()">Contato</a>
+      </div> -->
+    </div>
+  </footer>
+</div>

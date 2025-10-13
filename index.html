@@ -415,6 +415,32 @@
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
       }
 
+      /* WhatsApp Button */
+      .btn-whatsapp {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #25d366;
+        color: #0e3e1a;
+        border-radius: 50px;
+        padding: 14px 28px;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 10px 30px rgba(37, 211, 102, 0.35);
+      }
+
+      .btn-whatsapp:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+      }
+
+      .btn-whatsapp svg {
+        width: 22px;
+        height: 22px;
+      }
+
       /* Footer */
       .footer {
         padding: 40px 20px;
@@ -553,7 +579,7 @@
           <div class="hero-buttons">
             <button
               class="btn-primary"
-              onclick="alert('Funcionalidade de login não implementada neste projeto standalone.')"
+              onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})"
             >
               Começar Agora
             </button>
@@ -680,18 +706,23 @@
             </div>
             <div class="passo">
               <div class="passo-numero">2</div>
+              <h3>Chamada de Vídeo</h3>
+              <p>Faça chamada de vídeo inicial para alinhamento</p>
+            </div>
+            <div class="passo">
+              <div class="passo-numero">3</div>
               <h3>Anamnese</h3>
               <p>
                 Preencha uma avaliação completa sobre seu histórico e objetivos
               </p>
             </div>
             <div class="passo">
-              <div class="passo-numero">3</div>
+              <div class="passo-numero">4</div>
               <h3>Treino Personalizado</h3>
               <p>Receba seu plano de treino personalizado por mim</p>
             </div>
             <div class="passo">
-              <div class="passo-numero">4</div>
+              <div class="passo-numero">5</div>
               <h3>Acompanhamento</h3>
               <p>
                 Registre seu progresso e receba ajustes no treino conforme
@@ -703,7 +734,7 @@
       </section>
 
       <!-- CTA Final Section -->
-      <section class="cta-final">
+      <section class="cta-final" id="planos">
         <div class="container">
           <h2 class="cta-titulo">Pronto para Transformar sua Vida?</h2>
           <p class="cta-texto">Junte-se a nós para alcançar seus objetivos!</p>

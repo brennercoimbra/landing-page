@@ -415,6 +415,35 @@
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
       }
 
+      /* Contato Section */
+      .contato {
+        padding: 100px 20px;
+        background: white;
+      }
+
+      .btn-whatsapp {
+        display: inline-block;
+        padding: 16px 40px;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: #25d366;
+        color: white;
+        text-decoration: none;
+        box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+      }
+
+      .btn-whatsapp:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        background: #1fba57;
+      }
+
       /* Footer */
       .footer {
         padding: 40px 20px;
@@ -539,7 +568,7 @@
         }
       }
     </style>
-  <style>*{margin:0;padding:0;box-sizing:border-box}html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;font-size:16px;line-height:1.6;color:#1a202c;background:#f0fff4;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}body{margin:0;min-height:100vh;min-height:-webkit-fill-available}h1,h2,h3{font-weight:600;line-height:1.2;color:#1a202c}h1{font-size:clamp(1.5rem,5vw,2rem)}h2{font-size:clamp(1.25rem,4vw,1.5rem)}h3{font-size:clamp(1.1rem,3vw,1.25rem)}p{margin-bottom:1rem}button{font-family:inherit;font-size:inherit}.container{max-width:1200px;margin:0 auto;padding:0 20px}@media (max-width: 768px){html{font-size:14px}.container{padding:0 15px}button{min-height:44px;min-width:44px}}body{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}</style><link rel="stylesheet" href="styles.2a26914ae8966977.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.2a26914ae8966977.css"></noscript></head>
+  <style>*{margin:0;padding:0;box-sizing:border-box}html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;font-size:16px;line-height:1.6;color:#1a202c;background:#f0fff4;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}body{margin:0;min-height:100vh;min-height:-webkit-fill-available}h1,h2,h3{font-weight:600;line-height:1.2;color:#1a202c}h1{font-size:clamp(1.5rem,5vw,2rem)}h2{font-size:clamp(1.25rem,4vw,1.5rem)}h3{font-size:clamp(1.1rem,3vw,1.25rem)}p{margin-bottom:1rem}a{color:#38a169;text-decoration:none;transition:color .2s ease}a:hover{color:#68d391}button{font-family:inherit;font-size:inherit}.container{max-width:1200px;margin:0 auto;padding:0 20px}@media (max-width: 768px){html{font-size:14px}.container{padding:0 15px}button,a{min-height:44px;min-width:44px}}body{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}</style><link rel="stylesheet" href="styles.2a26914ae8966977.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.2a26914ae8966977.css"></noscript></head>
   <body>
     <div class="landing-container">
       <!-- Hero Section -->
@@ -551,7 +580,7 @@
             personalizado
           </p>
           <div class="hero-buttons">
-            <button class="btn-primary" onclick="alert('Funcionalidade de login não implementada neste projeto standalone.')">
+            <button class="btn-primary" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">
               Começar Agora
             </button>
             <button class="btn-secondary" onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">
@@ -664,18 +693,25 @@
             </div>
             <div class="passo">
               <div class="passo-numero">2</div>
+              <h3>Entre em contato via WhatsApp</h3>
+              <p>
+                Entre em contado via WhatsApp para agendar a chamada de vídeo
+              </p>
+            </div>
+            <div class="passo">
+              <div class="passo-numero">3</div>
               <h3>Anamnese</h3>
               <p>
                 Preencha uma avaliação completa sobre seu histórico e objetivos
               </p>
             </div>
             <div class="passo">
-              <div class="passo-numero">3</div>
+              <div class="passo-numero">4</div>
               <h3>Treino Personalizado</h3>
               <p>Receba seu plano de treino personalizado por mim</p>
             </div>
             <div class="passo">
-              <div class="passo-numero">4</div>
+              <div class="passo-numero">5</div>
               <h3>Acompanhamento</h3>
               <p>
                 Registre seu progresso e receba ajustes no treino conforme
@@ -687,7 +723,7 @@
       </section>
 
       <!-- CTA Final Section -->
-      <section class="cta-final">
+      <section class="cta-final" id="planos">
         <div class="container">
           <h2 class="cta-titulo">Pronto para Transformar sua Vida?</h2>
           <p class="cta-texto">Junte-se a nós para alcançar seus objetivos!</p>
@@ -701,10 +737,12 @@
                 sua rotina. Acompanhamento mensal para ajustes quando
                 necessário.
               </p>
-              <p class="preco-plano">R$ 130,00 / mês</p>
-              <button class="btn-cta" onclick="alert('Plano Essencial selecionado!')">
+              <!--         <button
+                class="btn-cta"
+                onclick="alert('Plano Essencial selecionado!')"
+              >
                 Escolher Plano
-              </button>
+              </button> -->
             </div>
             <div class="beneficio-card plano-premium">
               <div class="beneficio-icone">⭐⭐</div>
@@ -716,11 +754,27 @@
                 MiFitPersonal com ajustes sempre que necessário. Ideal para
                 acompanhamento próximo e evolução contínua.
               </p>
-              <p class="preco-plano">R$ 310,00 / Mês</p>
-              <button class="btn-cta" onclick="alert('Plano Premium selecionado!')">
+              <!--               <button
+                class="btn-cta"
+                onclick="alert('Plano Premium selecionado!')"
+              >
                 Escolher Plano
-              </button>
+              </button> -->
             </div>
+            <div></div>
+          </div>
+        </div>
+      </section>
+      <section class="contato" id="contato">
+        <div class="container">
+          <h2 class="section-title">Entre em Contato</h2>
+          <div style="text-align: center">
+            <p style="font-size: 18px; color: #2d3748; margin-bottom: 30px">
+              Tire suas dúvidas ou agende sua consultoria pelo WhatsApp
+            </p>
+            <a href="https://wa.me/5531991260534" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+              Falar no WhatsApp
+            </a>
           </div>
         </div>
       </section>
@@ -735,5 +789,5 @@
         </div>
       </footer>
     </div>
-  <script src="runtime.96852d635781f078.js" type="module"></script><script src="polyfills.658f076a9eca5aea.js" type="module"></script><script src="main.308a7a6c66c02430.js" type="module"></script></body>
+  <script src="runtime.96852d635781f078.js" type="module"></script><script src="polyfills.658f076a9eca5aea.js" type="module"></script><script src="main.f55f63477f827069.js" type="module"></script></body>
 </html>

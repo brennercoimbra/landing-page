@@ -1,27 +1,160 @@
-# LandingPage
+# 🏋️ Landing Page - Consultoria Amanda Santtos
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+Landing page para consultoria online de educação física, desenvolvida com Angular.
 
-## Development server
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-success)](https://brennercoimbra.github.io/landing-page/)
+[![Angular](https://img.shields.io/badge/Angular-16.2.16-red)](https://angular.io/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🌐 Acesse o Site
 
-## Code scaffolding
+**https://brennercoimbra.github.io/landing-page/**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 🚀 Deploy Automatizado
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Este projeto possui scripts para automatizar o processo de build e deploy para o GitHub Pages.
 
-## Running unit tests
+### Opção 1: Git Bash (Recomendado)
+```bash
+./deploy.sh
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Opção 2: PowerShell (Windows)
+```powershell
+.\deploy.ps1
+```
 
-## Running end-to-end tests
+📖 Para mais detalhes sobre os scripts de deploy, consulte: [DEPLOY.md](DEPLOY.md)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## 💻 Desenvolvimento Local
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Pré-requisitos
+- Node.js (v16 ou superior)
+- Angular CLI (`npm install -g @angular/cli`)
+
+### Instalar Dependências
+```bash
+npm install
+```
+
+### Servidor de Desenvolvimento
+```bash
+npm start
+```
+ou
+```bash
+ng serve
+```
+
+Acesse: `http://localhost:4200/`
+
+A aplicação será recarregada automaticamente quando você modificar os arquivos.
+
+---
+
+## 🔨 Build Manual
+
+### Build de Produção
+```bash
+ng build --configuration=production --output-path docs --base-href /landing-page/
+```
+
+### Corrigir Base Href (se necessário)
+```bash
+sed -i 's|<base href="C:/Users/brenner.coimbra/AppData/Local/Programs/Git/landing-page/">|<base href="/landing-page/">|g' docs/index.html
+```
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+landing-page/
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   └── landing/          # Componente principal da landing page
+│   │   ├── app.component.ts
+│   │   └── app.config.ts
+│   ├── assets/                   # Imagens e recursos
+│   ├── index.html
+│   └── styles.scss
+├── docs/                         # Build de produção (GitHub Pages)
+├── deploy.sh                     # Script de deploy (Bash)
+├── deploy.ps1                    # Script de deploy (PowerShell)
+├── DEPLOY.md                     # Documentação de deploy
+└── README.md
+```
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Angular 16.2.16** - Framework frontend
+- **TypeScript** - Linguagem de programação
+- **SCSS** - Pré-processador CSS
+- **GitHub Pages** - Hospedagem
+- **Angular CLI** - Ferramenta de build
+
+---
+
+## 📝 Scripts Disponíveis
+
+| Comando | Descrição |
+|---------|-----------|
+| `npm start` | Inicia servidor de desenvolvimento |
+| `npm test` | Executa testes unitários |
+| `npm run build` | Gera build de produção |
+| `./deploy.sh` | Deploy automatizado (Bash) |
+| `.\deploy.ps1` | Deploy automatizado (PowerShell) |
+
+---
+
+## 🎨 Funcionalidades
+
+- ✅ Design responsivo
+- ✅ Animações suaves
+- ✅ Seção Hero com imagem
+- ✅ Sobre a consultoria
+- ✅ Benefícios do serviço
+- ✅ Como funciona (passo a passo)
+- ✅ Planos de consultoria
+- ✅ Integração com WhatsApp
+- ✅ Footer com informações
+
+---
+
+## 🐛 Solução de Problemas
+
+### Imagem não aparece
+Certifique-se de que:
+- O arquivo está em `src/assets/foto.jpg`
+- A extensão do arquivo corresponde ao formato real
+- O build foi feito corretamente
+
+### Base href incorreto
+Use os scripts automatizados `deploy.sh` ou `deploy.ps1` que corrigem isso automaticamente.
+
+---
+
+## 📧 Contato
+
+Para dúvidas ou sugestões, entre em contato:
+- **WhatsApp**: [+55 31 99126-0534](https://wa.me/5531991260534)
+
+---
+
+## 📄 Licença
+
+© 2025 Consultoria Online de Educação Física. Todos os direitos reservados.
+
+---
+
+## 🔗 Links Úteis
+
+- [Angular CLI Overview](https://angular.io/cli)
+- [GitHub Pages Documentation](https://docs.github.com/en/pages)
+- [Angular Documentation](https://angular.io/docs)

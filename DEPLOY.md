@@ -5,9 +5,11 @@ Este projeto contém scripts para automatizar o processo de deploy da landing pa
 ## 📋 Scripts Disponíveis
 
 ### 1. `deploy.sh` (Git Bash / Linux / Mac)
+
 Script para ambientes Unix-like e Git Bash no Windows.
 
 ### 2. `deploy.ps1` (PowerShell)
+
 Script nativo para Windows PowerShell.
 
 ---
@@ -73,16 +75,19 @@ Após executar o script, aguarde 1-3 minutos e acesse:
 ## 🐛 Solução de Problemas
 
 ### Erro de permissão no Git Bash
+
 ```bash
 chmod +x deploy.sh
 ```
 
 ### Erro de execução no PowerShell
+
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
 ### Build com base href errado
+
 Os scripts já corrigem isso automaticamente! O problema ocorre quando o Git Bash interpreta `/landing-page/` como um caminho do Windows.
 
 ---

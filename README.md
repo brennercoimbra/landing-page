@@ -16,11 +16,13 @@ Landing page para consultoria online de educação física, desenvolvida com Ang
 Este projeto possui scripts para automatizar o processo de build e deploy para o GitHub Pages.
 
 ### Opção 1: Git Bash (Recomendado)
+
 ```bash
 ./deploy.sh
 ```
 
 ### Opção 2: PowerShell (Windows)
+
 ```powershell
 .\deploy.ps1
 ```
@@ -32,19 +34,24 @@ Este projeto possui scripts para automatizar o processo de build e deploy para o
 ## 💻 Desenvolvimento Local
 
 ### Pré-requisitos
+
 - Node.js (v16 ou superior)
 - Angular CLI (`npm install -g @angular/cli`)
 
 ### Instalar Dependências
+
 ```bash
 npm install
 ```
 
 ### Servidor de Desenvolvimento
+
 ```bash
 npm start
 ```
+
 ou
+
 ```bash
 ng serve
 ```
@@ -58,11 +65,13 @@ A aplicação será recarregada automaticamente quando você modificar os arquiv
 ## 🔨 Build Manual
 
 ### Build de Produção
+
 ```bash
 ng build --configuration=production --output-path docs --base-href /landing-page/
 ```
 
 ### Corrigir Base Href (se necessário)
+
 ```bash
 sed -i 's|<base href="C:/Users/brenner.coimbra/AppData/Local/Programs/Git/landing-page/">|<base href="/landing-page/">|g' docs/index.html
 ```
@@ -103,13 +112,13 @@ landing-page/
 
 ## 📝 Scripts Disponíveis
 
-| Comando | Descrição |
-|---------|-----------|
-| `npm start` | Inicia servidor de desenvolvimento |
-| `npm test` | Executa testes unitários |
-| `npm run build` | Gera build de produção |
-| `./deploy.sh` | Deploy automatizado (Bash) |
-| `.\deploy.ps1` | Deploy automatizado (PowerShell) |
+| Comando         | Descrição                          |
+| --------------- | ---------------------------------- |
+| `npm start`     | Inicia servidor de desenvolvimento |
+| `npm test`      | Executa testes unitários           |
+| `npm run build` | Gera build de produção             |
+| `./deploy.sh`   | Deploy automatizado (Bash)         |
+| `.\deploy.ps1`  | Deploy automatizado (PowerShell)   |
 
 ---
 
@@ -130,12 +139,15 @@ landing-page/
 ## 🐛 Solução de Problemas
 
 ### Imagem não aparece
+
 Certifique-se de que:
+
 - O arquivo está em `src/assets/foto.jpg`
 - A extensão do arquivo corresponde ao formato real
 - O build foi feito corretamente
 
 ### Base href incorreto
+
 Use os scripts automatizados `deploy.sh` ou `deploy.ps1` que corrigem isso automaticamente.
 
 ---
@@ -143,6 +155,7 @@ Use os scripts automatizados `deploy.sh` ou `deploy.ps1` que corrigem isso autom
 ## 📧 Contato
 
 Para dúvidas ou sugestões, entre em contato:
+
 - **WhatsApp**: [+55 31 99126-0534](https://wa.me/5531991260534)
 
 ---

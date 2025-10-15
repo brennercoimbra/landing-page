@@ -31,35 +31,43 @@ echo ""
 
 # 4. Fazer build de produção
 echo "🔨 Gerando build de produção..."
-npx ng build --configuration=production --output-path=docs --base-href=/landing-page/
+npx ng build --configuration=production --output-path=docs --base-href=/
 echo "✅ Build gerado com sucesso!"
 echo ""
 
 # 5. Corrigir base href (problema do Git Bash no Windows)
-echo "🔧 Corrigindo base href..."
-sed -i 's|<base href="C:/Users/brenner.coimbra/AppData/Local/Programs/Git/landing-page/">|<base href="/landing-page/">|g' docs/index.html
+echo "🔧 Corrigindo base href para domínio personalizado..."
+sed -i 's|<base href="C:/Users/brenner.coimbra/AppData/Local/Programs/Git/landing-page/">|<base href="/">|g' docs/index.html
 echo "✅ Base href corrigido!"
 echo ""
 
-# 6. Adicionar mudanças ao git
+# 6. Recriar arquivo CNAME para domínio personalizado
+echo "🌐 Criando arquivo CNAME..."
+echo "consultoriaamandasanttos.com.br" > docs/CNAME
+echo "✅ CNAME criado!"
+echo ""
+
+# 7. Adicionar mudanças ao git
 echo "📦 Adicionando arquivos ao git..."
 git add .
 echo "✅ Arquivos adicionados!"
 echo ""
 
-# 7. Commit do build
+# 8. Commit do build
 echo "💾 Fazendo commit do build..."
 git commit -m "Deploy: Atualizar build para GitHub Pages - $(date +'%Y-%m-%d %H:%M:%S')"
 echo "✅ Commit realizado!"
 echo ""
 
-# 8. Push para o GitHub
+# 9. Push para o GitHub
 echo "🚢 Enviando para o GitHub..."
 git push
 echo "✅ Deploy enviado com sucesso!"
 echo ""
 
 echo "🎉 Deploy concluído!"
-echo "🌐 Sua landing page estará disponível em: https://brennercoimbra.github.io/landing-page/"
+echo "🌐 Sua landing page estará disponível em:"
+echo "   - https://consultoriaamandasanttos.com.br (domínio personalizado)"
+echo "   - https://brennercoimbra.github.io/landing-page/ (GitHub Pages)"
 echo "⏱️  Aguarde 1-3 minutos para o GitHub Pages processar o deploy."
 echo ""

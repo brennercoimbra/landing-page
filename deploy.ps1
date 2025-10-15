@@ -32,16 +32,16 @@ Write-Host ""
 
 # 4. Fazer build de produção
 Write-Host "🔨 Gerando build de produção..." -ForegroundColor Cyan
-npx ng build --configuration=production --output-path=docs --base-href=/landing-page/
+npx ng build --configuration=production --output-path=docs --base-href=/
 Write-Host "✅ Build gerado com sucesso!" -ForegroundColor Green
 Write-Host ""
 
 # 5. Corrigir base href (problema do Git Bash no Windows)
-Write-Host "🔧 Corrigindo base href..." -ForegroundColor Cyan
+Write-Host "🔧 Corrigindo base href para domínio personalizado..." -ForegroundColor Cyan
 $indexPath = "docs\index.html"
 if (Test-Path $indexPath) {
     $content = Get-Content $indexPath -Raw
-    $content = $content -replace '<base href="C:/Users/brenner\.coimbra/AppData/Local/Programs/Git/landing-page/">', '<base href="/landing-page/">'
+    $content = $content -replace '<base href="C:/Users/brenner\.coimbra/AppData/Local/Programs/Git/landing-page/">', '<base href="/">'
     $content | Set-Content $indexPath -NoNewline
     Write-Host "✅ Base href corrigido!" -ForegroundColor Green
 } else {
@@ -49,27 +49,35 @@ if (Test-Path $indexPath) {
 }
 Write-Host ""
 
-# 6. Adicionar mudanças ao git
+# 6. Recriar arquivo CNAME para domínio personalizado
+Write-Host "🌐 Criando arquivo CNAME..." -ForegroundColor Cyan
+"consultoriaamandasanttos.com.br" | Set-Content "docs\CNAME" -NoNewline
+Write-Host "✅ CNAME criado!" -ForegroundColor Green
+Write-Host ""
+
+# 7. Adicionar mudanças ao git
 Write-Host "📦 Adicionando arquivos ao git..." -ForegroundColor Cyan
 git add .
 Write-Host "✅ Arquivos adicionados!" -ForegroundColor Green
 Write-Host ""
 
-# 7. Commit do build
+# 8. Commit do build
 Write-Host "💾 Fazendo commit do build..." -ForegroundColor Cyan
 $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 git commit -m "Deploy: Atualizar build para GitHub Pages - $timestamp"
 Write-Host "✅ Commit realizado!" -ForegroundColor Green
 Write-Host ""
 
-# 8. Push para o GitHub
+# 9. Push para o GitHub
 Write-Host "🚢 Enviando para o GitHub..." -ForegroundColor Cyan
 git push
 Write-Host "✅ Deploy enviado com sucesso!" -ForegroundColor Green
 Write-Host ""
 
 Write-Host "🎉 Deploy concluído!" -ForegroundColor Green
-Write-Host "🌐 Sua landing page estará disponível em: https://brennercoimbra.github.io/landing-page/" -ForegroundColor Cyan
+Write-Host "🌐 Sua landing page estará disponível em:" -ForegroundColor Cyan
+Write-Host "   - https://consultoriaamandasanttos.com.br (domínio personalizado)" -ForegroundColor Cyan
+Write-Host "   - https://brennercoimbra.github.io/landing-page/ (GitHub Pages)" -ForegroundColor Cyan
 Write-Host "⏱️  Aguarde 1-3 minutos para o GitHub Pages processar o deploy." -ForegroundColor Yellow
 Write-Host ""
 

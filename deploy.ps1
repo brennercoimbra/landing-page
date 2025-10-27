@@ -41,7 +41,7 @@ Write-Host "🔧 Corrigindo base href para domínio personalizado..." -Foregroun
 $indexPath = "docs\index.html"
 if (Test-Path $indexPath) {
     $content = Get-Content $indexPath -Raw
-    $content = $content -replace '<base href="C:/Users/brenner\.coimbra/AppData/Local/Programs/Git/landing-page/">', '<base href="/">'
+    $content = $content -replace '<base href="[^"]*">', '<base href="/">'
     $content | Set-Content $indexPath -NoNewline
     Write-Host "✅ Base href corrigido!" -ForegroundColor Green
 } else {

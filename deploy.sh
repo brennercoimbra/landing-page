@@ -37,7 +37,7 @@ echo ""
 
 # 5. Corrigir base href (problema do Git Bash no Windows)
 echo "🔧 Corrigindo base href para domínio personalizado..."
-sed -i 's|<base href="C:/Users/brenner.coimbra/AppData/Local/Programs/Git/landing-page/">|<base href="/">|g' docs/index.html
+sed -i 's|<base href="[^"]*"|<base href="/"|g' docs/index.html
 echo "✅ Base href corrigido!"
 echo ""
 
